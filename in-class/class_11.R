@@ -39,7 +39,7 @@ a
 
 ## Reading data into R (and working directories) ----
 
-# When you open R directly it opens to your home directly. 
+# When you open R directly it opens to your home directory. 
 getwd() # (this will look different when we compile vs. using R interactively)
 
 # (What is a working directory? What is directory structure?)
@@ -113,7 +113,7 @@ head(dat)
 #' \end{aligned}
 #' \]
 #' 
-#' A convenient and helpful "cheatsheet" for Latex math is here: 
+#' A convenient and helpful "cheatsheet" for LaTeX math is here: 
 #' http://reu.dimacs.rutgers.edu/Symbols.pdf
 #' 
 #' A tool on the web that might be helpful for writing expressions in a 
