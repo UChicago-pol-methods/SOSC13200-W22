@@ -6,7 +6,7 @@
 #' 
 #' For the first assignment, I want you to update this file with your name, and 
 #' to set up a working directory for this class on your computer. Then, compile 
-#' this .R file to generate a pdf report. Submit *both* this .R file and the 
+#' this .R file to generate a .pdf report. Submit *both* this .R file and the 
 #' compiled .pdf file on Canvas. 
 #' 
 #' To get started in R: 
