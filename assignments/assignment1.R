@@ -36,13 +36,13 @@
 #' What *is* very useful is that you can make a heading for your report, like at 
 #' the top of this script. 
 #' 
-#' ## 1. Fill in your own name  at the top of this report, where it says `<your name here>`.
+#' ## 1. Fill in your own name  at the top of the .R file for this report, where it says `<your name here>`.
 #' 
 #' ## 2. Set up a working directory for this class. 
 #' 
 #' a. Make a folder for this class somewhere on your own computer. Preferably 
 #' not on your desktop. Mine is here: 
-#' `~Documents/Git//Users/moffer/Documents/Git/SOSC13200-W22`. 
+#' `~Users/mollyofferwestort/Documents/Git/SOSC13200-W22`. 
 #'
 #' b. Inside that folder, make one folder called `assignments`, and one folder 
 #' called `data`. 
@@ -53,6 +53,7 @@
 #' ```
 #' | -class-folder 
 #' | |- assignments
+#' | | |-assignment1.R
 #' | |- data
 #' ```
 #' 
