@@ -1,2 +1,10 @@
-.DS_Store
-in-class/.Rhistory
+*.DS_Store
+*.Rhistory
+assignments/pset-spinning-template
+*.tex
+*.log
+*.nav
+*.snm
+*.gz
+*.toc
+*.bbl
