@@ -645,7 +645,7 @@ Y_t(u)-Y_c(u).
 \backupbegin
 %-------------------------------------------------------------------------------%
 
-\begin{frame}[allowframebreaks]
+\begin{frame}[allowframebreaks]{References}
     \bibliographystyle{apalike}
     \bibliography{../assets/bib}
 \end{frame}
