@@ -72,7 +72,7 @@ ggplot(dat[which(dat$d == 0 & dat$nj == 1),], aes(x = pt)) +
 
 #' # 2b. Using `facet_wrap()`, make the same figure for each state and both waves in the same plot. 
 
-ggplot(dat, aes(x = nregs)) +
+ggplot(dat, aes(x = pt)) +
   geom_histogram(bins = max(dat$pt, na.rm = TRUE)) +
   facet_wrap(vars(nj, d)) +
   xlab('Part time employees') +
@@ -80,7 +80,7 @@ ggplot(dat, aes(x = nregs)) +
 
 
 # (To have the plots correctly labeled)
-ggplot(dat, aes(x = nregs)) +
+ggplot(dat, aes(x = pt)) +
   geom_histogram(bins = max(dat$pt, na.rm = TRUE)) +
   facet_wrap(vars(nj,d), 
              labeller = labeller(nj = c(`0` = 'PA', `1` = 'NJ'), 
@@ -89,7 +89,7 @@ ggplot(dat, aes(x = nregs)) +
   ggtitle('Part time employees')
 
 # OR
-ggplot(dat, aes(x = nregs)) +
+ggplot(dat, aes(x = pt)) +
   geom_histogram(bins = max(dat$pt, na.rm = TRUE)) +
   facet_grid(rows = vars(nj), cols = vars(d), 
              labeller = labeller(.rows = c(`0` = 'PA', `1` = 'NJ'),
@@ -100,7 +100,7 @@ ggplot(dat, aes(x = nregs)) +
 #' # 3. Using `geom_boxplot()`, create a box and whiskers plot of the distribution of full time employees.
 #' Include wave as a secondary aesthetic, and state as color, so that you should have two paired plots for each wave. 
 
-ggplot(dat, aes(x=pt, y=as.factor(d+1), fill=as.factor(nj))) + 
+ggplot(dat, aes(x=ft, y=as.factor(d+1), fill=as.factor(nj))) + 
   geom_boxplot() +
   scale_fill_discrete(name = 'State', labels = c('PA', 'NJ')) +
   xlab('Full time employees') +
