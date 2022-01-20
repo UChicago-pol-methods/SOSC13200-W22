@@ -54,10 +54,10 @@ dat$id[1]
 dat$id[11:20]
 
 #' Modify elements within a vector by index number.
-id2 <- dat$id
+id2 <- dat$id # recall the assignment operator, <-
 identical(dat$id, id2)
 
-id2[2] <- 99999 # recall the assignment operator, <-
+id2[2] <- 99999 
 
 head(id2)
 head(dat$id)
@@ -103,6 +103,9 @@ class(c(1,1,3,4,'59'))
 
 round(mean(dat$mgrs, na.rm = TRUE), 2)
 ?round
+
+
+# through class 1
 
 
 median(dat$mgrs, na.rm = TRUE)

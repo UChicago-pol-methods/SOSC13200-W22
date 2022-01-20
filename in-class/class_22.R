@@ -30,7 +30,6 @@ ggplot(dat0, # data
   geom_histogram() # layer
 
 # should we be worried about the messages/warnings?
-table(is.na(dat0$wage))
 
 #' How to decide what the number of bins should be?
 unique(dat0$wage)
@@ -40,6 +39,9 @@ diff(sort(unique(dat0$wage)))
 mean(diff(sort(unique(dat0$wage))))
 
 diff(range(dat0$wage, na.rm = TRUE))/.05
+
+# what about 20 rows of non-finite values?
+table(is.na(dat0$wage))
 
 ggplot(dat0, # data
        aes(x = wage)) + # aesthetic mapping
@@ -65,7 +67,10 @@ dat0$State <- factor(dat0$nj, labels = c('PA', 'NJ'))
 
 g <- ggplot(dat0, # data
             aes(x = wage, fill = State)) + # aesthetic mapping
-  geom_histogram(bins = 15, position = 'dodge', color = 'white', na.rm = TRUE) + # layer
+  geom_histogram(bins = 15, 
+                 position = 'dodge', 
+                 color = 'white', 
+                 na.rm = TRUE) + # layer
   xlab('Business wages') +
   ylab('Business counts') + 
   ggtitle('Wage by state, counts')
@@ -166,12 +171,23 @@ ggplot(dat, # data
   ggtitle('Number of full time employees\nby wave and state')
 
 
-
 #' ## Exercises
+#' 
+#' Run `vignette("ggplot2-specs")` in your console to get an overview of some
+#' ggplot2 aesthetics that can be modified. 
 #' 
 #' 
 #' Make a boxplot that shows number of full time equivalent employees by 
 #' wave and state. Look up `?geom_boxplot` and modify several different options. 
+#' Try seeing what shapes you can use for outliers. 
 #' 
 #' 
+#' Make a histogram that shows number of hours open per day, by co-owned status. 
+#' Use colors to show an additional aesthetic component. Try faceting with two 
+#' different variables. 
 #' 
+#' 
+#' Recreate one of the boxplots from above, using a violin plot (`geom_violin`).
+#' Does this give you different information? See what it looks like overlaying
+#' geom_point() or geom_jitter(). 
+#'
