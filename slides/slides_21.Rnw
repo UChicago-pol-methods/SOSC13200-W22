@@ -36,7 +36,7 @@ For empirical papers:\pause
 \item Research design/strategy\pause
 \item Statistical tools\pause
 \end{itemize}
-\item What is the answer that the authors get to the main question?\pause
+\item What is the answer that the authors get to the main question?
 \end{itemize}
 
 \pause
