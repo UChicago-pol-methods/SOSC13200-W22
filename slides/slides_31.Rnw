@@ -1,4 +1,4 @@
-\documentclass[xcolor={dvipsnames},handout]{beamer}
+\documentclass[xcolor={dvipsnames}, handout]{beamer}
 
 \usepackage{../assets/pres-template_MOW}
 \usepackage{verbatim}
@@ -11,7 +11,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\tabcolsep}{1.3pt}
 \title{Social Science Inquiry II}
-\subtitle{Week 3: A brief introduction to probability, part II}
+\subtitle{Week 3: A brief introduction to probability, part I}
 \date{Winter 2022}
 \author{Molly Offer-Westort}
 \institute{Department of Political Science, \\University of Chicago}
@@ -115,7 +115,7 @@ Why do we use probability theory? \pause
 }
 
 %-------------------------------------------------------------------------------%
-\begin{frame}{Frametitle}
+\begin{frame}{Randomness}
 
 What does it mean to describe real world events as ``random''? \pause
 
@@ -216,7 +216,7 @@ $Y = \beta_0 + \beta_1 X$
 
 is rendered as \\~\
 
-$Y = \beta_0 + \beta_1 X$.\\~\
+$Y = \beta_0 + \beta_1 X$.\\~\ \pause
 
 
 We have just used probability notation as a way to fully describe any random generative process. 
@@ -287,7 +287,7 @@ $$
 $$\\~\
 \pause
 
-*Notational aside: The event $AB$ is that both $A$ and $B$ happen. There are other ways to write this, including $A \cap B$.*
+\textit{Notational aside: The event $AB$ is that both $A$ and $B$ happen. There are other ways to write this, including $A \cap B$.}
 
 
 \end{frame}
@@ -860,7 +860,7 @@ What data are we missing to address this question?
 \pause
 
 \begin{itemize}
-\item Dean Knox \& Jonathan Mummolo wrote a letter critiquing the original article, based on the authors' failure to appropriately apply Bayes Rule;
+\item Dean Knox \& Jonathan Mummolo wrote a letter critiquing the original article, based on the authors' failure to appropriately apply Bayes Rule;\pause
 \item The article was eventually retracted \pause
 \item (It's a bit more complicated than that, but know your conditional probability when thinking about difficult subjects!)
 \end{itemize}
