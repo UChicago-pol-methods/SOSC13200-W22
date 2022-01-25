@@ -109,6 +109,6 @@ set.seed(60637)
 # Your code here.
 
 #' ## (2d)
-#' Are the events that $X = 1$ and that $Y = 1$ are independent?
+#' Are the events that $X = 3$ and that $Y = 1$ are independent?
 
 # Your code here.
