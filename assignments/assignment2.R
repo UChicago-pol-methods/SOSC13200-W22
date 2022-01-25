@@ -1,5 +1,5 @@
 #' ---
-#' title: "Assignment II, Social Science Inquiry II (SOSC13200-W22-3)"
+#' title: "Assignment 2, Social Science Inquiry II (SOSC13200-W22-3)"
 #' author: "<your name here>"
 #' date: "Friday 1/21/22 at 5pm"
 #' ---
