@@ -8,11 +8,11 @@
 #' **Consider the random process of flipping a fair coin three times.**
 #' 
 #' ## (1a) 
-#' Write an R object, `omega`, that is a vector whose elements describe the 
+#' Write an R object, `Omega`, that is a vector whose elements describe the 
 #' sample space in terms of heads and tails. E.g., three heads in a row could be 
 #' described as 'HHH'. 
 
-omega <- c('TTT', 'TTH', 'THT', 'HTT', 'THH', 'HTH', 'HHT', 'HHH')
+Omega <- c('TTT', 'TTH', 'THT', 'HTT', 'THH', 'HTH', 'HHT', 'HHH')
   
 #' ## (1b) 
 #' The random variable $X$ that we're interested in is the number of heads that 
