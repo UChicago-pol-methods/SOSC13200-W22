@@ -60,12 +60,12 @@ round(mean(dat$fte[which(dat$nj==0 & dat$d == 1)], na.rm = TRUE),1)
 
 #' # 2a. Make separate histograms showing the number of part time employees in each state, in the first wave only. Label your plots. 
 ggplot(dat[which(dat$d == 0 & dat$nj == 0),], aes(x = pt)) +
-  geom_histogram(bins = max(dat$pt, na.rm = TRUE)) +
+  geom_histogram(bins = max(dat$pt, na.rm = TRUE), na.rm = TRUE) +
   xlab('Part time employees') +
   ggtitle('Part time employees, Wave 1, PA')
 
 ggplot(dat[which(dat$d == 0 & dat$nj == 1),], aes(x = pt)) +
-  geom_histogram(bins = max(dat$pt, na.rm = TRUE)) +
+  geom_histogram(bins = max(dat$pt, na.rm = TRUE), na.rm = TRUE) +
   xlab('Part time employees') +
   ggtitle('Part time employees, Wave 1, NJ')
 
@@ -73,7 +73,7 @@ ggplot(dat[which(dat$d == 0 & dat$nj == 1),], aes(x = pt)) +
 #' # 2b. Using `facet_wrap()`, make the same figure for each state and both waves in the same plot. 
 
 ggplot(dat, aes(x = pt)) +
-  geom_histogram(bins = max(dat$pt, na.rm = TRUE)) +
+  geom_histogram(bins = max(dat$pt, na.rm = TRUE), na.rm = TRUE) +
   facet_wrap(vars(nj, d)) +
   xlab('Part time employees') +
   ggtitle('Part time employees')
@@ -81,7 +81,7 @@ ggplot(dat, aes(x = pt)) +
 
 # (To have the plots correctly labeled)
 ggplot(dat, aes(x = pt)) +
-  geom_histogram(bins = max(dat$pt, na.rm = TRUE)) +
+  geom_histogram(bins = max(dat$pt, na.rm = TRUE), na.rm = TRUE) +
   facet_wrap(vars(nj,d), 
              labeller = labeller(nj = c(`0` = 'PA', `1` = 'NJ'), 
                                  d = c(`0` = 'Wave 1', `1` = 'Wave 2'))) +
@@ -90,7 +90,7 @@ ggplot(dat, aes(x = pt)) +
 
 # OR
 ggplot(dat, aes(x = pt)) +
-  geom_histogram(bins = max(dat$pt, na.rm = TRUE)) +
+  geom_histogram(bins = max(dat$pt, na.rm = TRUE), na.rm = TRUE) +
   facet_grid(rows = vars(nj), cols = vars(d), 
              labeller = labeller(.rows = c(`0` = 'PA', `1` = 'NJ'),
                                  .cols = c(`0` = 'Wave 1', `1` = 'Wave 2'))) +
@@ -101,7 +101,7 @@ ggplot(dat, aes(x = pt)) +
 #' Include wave as a secondary aesthetic, and state as color, so that you should have two paired plots for each wave. 
 
 ggplot(dat, aes(x=ft, y=as.factor(d+1), fill=as.factor(nj))) + 
-  geom_boxplot() +
+  geom_boxplot(na.rm = TRUE) +
   scale_fill_discrete(name = 'State', labels = c('PA', 'NJ')) +
   xlab('Full time employees') +
   ylab('Wave') +
