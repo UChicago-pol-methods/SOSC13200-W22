@@ -21,14 +21,14 @@ summary(dat)
 
 
 ###################################################
-### code chunk number 4: slides_41.Rnw:250-252 (eval = FALSE)
+### code chunk number 4: slides_41.Rnw:299-301 (eval = FALSE)
 ###################################################
 ## ggplot(dat, aes(x = year_of_birth, y = education)) +
 ##   geom_point()
 
 
 ###################################################
-### code chunk number 5: slides_41.Rnw:292-301
+### code chunk number 5: slides_41.Rnw:341-350
 ###################################################
 dat_agg <- aggregate(x = dat[, c('log_weekly_wage', 'education')], 
                     by = list(`year_of_birth` = dat$year_of_birth, 
@@ -42,7 +42,7 @@ head(dat_agg)
 
 
 ###################################################
-### code chunk number 6: slides_41.Rnw:322-325 (eval = FALSE)
+### code chunk number 6: slides_41.Rnw:371-374 (eval = FALSE)
 ###################################################
 ## ggplot(dat_agg, aes(x = year_of_birth, y = education)) +
 ##   geom_point() + # points
@@ -50,7 +50,7 @@ head(dat_agg)
 
 
 ###################################################
-### code chunk number 7: slides_41.Rnw:332-335
+### code chunk number 7: slides_41.Rnw:381-384
 ###################################################
 ggplot(dat_agg, aes(x = year_of_birth_adj, y = education)) +
   geom_point() + # points
@@ -58,7 +58,7 @@ ggplot(dat_agg, aes(x = year_of_birth_adj, y = education)) +
 
 
 ###################################################
-### code chunk number 8: slides_41.Rnw:377-392 (eval = FALSE)
+### code chunk number 8: slides_41.Rnw:426-441 (eval = FALSE)
 ###################################################
 ## ggplot(dat_agg, aes(x = year_of_birth_adj, 
 ##                    y = education, 
@@ -78,7 +78,7 @@ ggplot(dat_agg, aes(x = year_of_birth_adj, y = education)) +
 
 
 ###################################################
-### code chunk number 9: slides_41.Rnw:415-426
+### code chunk number 9: slides_41.Rnw:464-475
 ###################################################
 ggplot(dat_agg, aes(x = year_of_birth_adj, y = education, label = quarter_of_birth)) +
   geom_point(pch = 15, aes(color = as.factor(quarter_of_birth) )) + # points with color
@@ -94,7 +94,7 @@ ggplot(dat_agg, aes(x = year_of_birth_adj, y = education, label = quarter_of_bir
 
 
 ###################################################
-### code chunk number 10: slides_41.Rnw:482-509
+### code chunk number 10: slides_41.Rnw:551-578
 ###################################################
 # function for moving average
 ma <- function(x, n = 5){ 
@@ -126,7 +126,7 @@ dat_agg$deviation <- aggregate(x = dat$deviation,
 
 
 ###################################################
-### code chunk number 11: slides_41.Rnw:530-544 (eval = FALSE)
+### code chunk number 11: slides_41.Rnw:599-613 (eval = FALSE)
 ###################################################
 ## ggplot(dat_agg, aes(x = year_of_birth_adj, 
 ##                    y = deviation, 
@@ -145,7 +145,7 @@ dat_agg$deviation <- aggregate(x = dat$deviation,
 
 
 ###################################################
-### code chunk number 12: slides_41.Rnw:568-582
+### code chunk number 12: slides_41.Rnw:637-651
 ###################################################
 ggplot(dat_agg, aes(x = year_of_birth_adj, 
                    y = deviation, 
@@ -164,7 +164,7 @@ ggplot(dat_agg, aes(x = year_of_birth_adj,
 
 
 ###################################################
-### code chunk number 13: slides_41.Rnw:690-705 (eval = FALSE)
+### code chunk number 13: slides_41.Rnw:759-774 (eval = FALSE)
 ###################################################
 ## ggplot(dat_agg, aes(x = year_of_birth_adj, y = log_weekly_wage, 
 ##                    label = quarter_of_birth)) +
@@ -184,7 +184,7 @@ ggplot(dat_agg, aes(x = year_of_birth_adj,
 
 
 ###################################################
-### code chunk number 14: slides_41.Rnw:730-745
+### code chunk number 14: slides_41.Rnw:799-814
 ###################################################
 ggplot(dat_agg, aes(x = year_of_birth_adj, y = log_weekly_wage, 
                    label = quarter_of_birth)) +

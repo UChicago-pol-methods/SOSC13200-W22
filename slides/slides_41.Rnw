@@ -7,7 +7,7 @@
 %--------------------------------------------------------------------------
 % Specific to this document ---------------------------------------
 %--------------------------------------------------------------------------
-\setbeamercovered{transparent}
+% \setbeamercovered{transparent}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\tabcolsep}{1.3pt}
@@ -105,6 +105,55 @@ check(+/-) \pause
 \Large
 \centering
 \textcolor{Maroon}{Angrist, Joshua D., and Alan B. Krueger. (1991) ``Does compulsory school attendance affect schooling and earnings?''}
+
+
+
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}{An aside on Nobels}
+
+\begin{figure}
+\centering
+\includegraphics{../assets/nobels21.jpeg}
+\caption{Joshua Angrist, Guido Imbens, David Card}
+\end{figure}
+
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}{An aside on Nobels}
+
+\begin{figure}
+\centering
+\includegraphics[width = .4\textwidth]{../assets/krueger19.jpeg}
+\caption{Alan Krueger}
+\end{figure}
+\pause
+Krueger and Card were economists at Princeton when they started collaborating \pause (Card started his career at the Booth School). \pause
+Josh Angrist started collaborating on the returns to schooling project as a PhD student in the department. 
 
 
 
@@ -228,7 +277,7 @@ summary(dat)
 \begin{itemize}
 \item Where does it come from/how is it generated?\pause
 \item What is the sample population? \pause
-\item What is being measured? \pause
+\item What is being measured? 
 \end{itemize}
 
 \end{frame}
@@ -462,6 +511,26 @@ ggplot(dat_agg, aes(x = year_of_birth_adj, y = education, label = quarter_of_bir
 \begin{frame}[fragile]{Data exploration: Education on birth year}
 
 \includegraphics{../assets/angrist-krueger3.png}
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}{Data exploration: Education on birth year}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../assets/angrist-krueger4.png}
+\end{figure}
+
 \end{frame}
 
 
@@ -782,11 +851,12 @@ ggplot(dat_agg, aes(x = year_of_birth_adj, y = log_weekly_wage,
 \begin{frame}{Wald estimator}
 Computes returns to education as ratio:
 \begin{itemize}
-\item numerator: the difference in earning by quarter of birth  
+\item numerator: the difference in earning by quarter of birth \pause
 \item denominator: the difference in education by quarter of birth \pause
-\item comparison: men born in first quarter vs. men born in last three quarters
+\item comparison: men born in first quarter vs. men born in last three quarters\pause
 \end{itemize}
 
+The Wald estimator is a simple example of \textbf{Instrumental Variables} analysis, where you \textit{instrument} for changes in $X$ with changes in some instrument, $Z$. 
 
 \end{frame}
 
@@ -803,11 +873,41 @@ Computes returns to education as ratio:
 
 %-------------------------------------------------------------------------------%
 \begin{frame}{Wald estimator}
-Identification for the Wald estimator:
+Computes returns to education as ratio:
 \begin{itemize}
-\item ``Consistent'' estimator for returns to education if season of birth is not correlated with other determinants of earnings besides education \pause
-\item Do you think this is a valid assumption?
+\item numerator: the difference in earning by quarter of birth \pause
+\item denominator: the difference in education by quarter of birth \pause
+\item comparison: men born in first quarter vs. men born in last three quarters
 \end{itemize}
+
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}{Wald estimator}
+
+The Wald estimator is a simple example of \textbf{Instrumental Variables} analysis, where you \textit{instrument} for changes in $X$ with changes in some instrument, $Z$.\pause
+
+$$
+{\beta}_{IV} = \frac{\delta y/ \delta z}{\delta x /\delta z}
+$$
+\pause
+
+With the Wald estimator, $Z$ is binary. 
+$$
+\hat{\beta}_{Wald} = \frac{\bar y_1 -\bar y_0}{\bar x_1 -\bar x_0}
+$$
+
 
 
 \end{frame}
@@ -825,10 +925,10 @@ Identification for the Wald estimator:
 
 %-------------------------------------------------------------------------------%
 \begin{frame}{Data analysis: Returns to education}
-
-\begin{centering}
-\includegraphics[width = .6\textwidth]{../assets/angrist-kruegert3.png}
-\end{centering}
+\bgeing{figure}
+\centering
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../assets/angrist-kruegert3.png}
+\end{figure}
 
 \end{frame}
 
@@ -843,6 +943,23 @@ Identification for the Wald estimator:
 
 }
 
+
+%-------------------------------------------------------------------------------%
+\begin{frame}[c]
+
+\textcolor{Maroon}{What makes this paper so compelling? What is its contribution to research methods in the social sciences?}
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+
+}
 
 %-------------------------------------------------------------------------------%
 \backupbegin
