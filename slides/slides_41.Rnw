@@ -369,7 +369,7 @@ head(dat_agg)
 
 \scriptsize
 <<eval = FALSE>>=
-ggplot(dat_agg, aes(x = year_of_birth, y = education)) +
+ggplot(dat_agg, aes(x = year_of_birth_adj, y = education)) +
   geom_point() + # points
   geom_line() # lines
 @
@@ -925,7 +925,7 @@ $$
 
 %-------------------------------------------------------------------------------%
 \begin{frame}{Data analysis: Returns to education}
-\bgeing{figure}
+\begin{figure}
 \centering
 \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../assets/angrist-kruegert3.png}
 \end{figure}

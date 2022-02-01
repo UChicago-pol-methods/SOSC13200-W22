@@ -44,7 +44,7 @@ head(dat_agg)
 ###################################################
 ### code chunk number 6: slides_41.Rnw:371-374 (eval = FALSE)
 ###################################################
-## ggplot(dat_agg, aes(x = year_of_birth, y = education)) +
+## ggplot(dat_agg, aes(x = year_of_birth_adj, y = education)) +
 ##   geom_point() + # points
 ##   geom_line() # lines
 
