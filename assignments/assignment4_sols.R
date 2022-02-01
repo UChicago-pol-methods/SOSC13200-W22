@@ -53,8 +53,8 @@ dat <- read.csv(file, as.is = TRUE)
 #' ## (2a)
 #' In the Angrist and Krueger data, create a new variable, `year_of_birth_adj`, 
 #' which adds a quarter on to year of birth for each quarter in quarter of 
-#' birth. For example, if a person was born in 1930 Q2, their `year_of_birth_adj` 
-#' value would be 1930 + 0.25 * 2 = 1930.5. 
+#' birth *after the first quarter*. For example, if a person was born in 1930 Q2, 
+#' their `year_of_birth_adj` value would be 1930 + 0.25 * (2-1) = 1930.25. 
 
 dat$year_of_birth_adj <- dat$year_of_birth + 
   0.25 * (dat$quarter_of_birth-1)
