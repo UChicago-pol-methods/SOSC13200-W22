@@ -19,7 +19,7 @@
 
 
 \begin{document}
-\SweaveOpts{concordance=TRUE, prefix.string = figs/}
+\SweaveOpts{concordance=TRUE, prefix.string = figs31/}
 
 
 %-------------------------------------------------------------------------------%
