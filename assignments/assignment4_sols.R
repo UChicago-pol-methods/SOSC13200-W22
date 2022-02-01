@@ -46,6 +46,9 @@ dat <- read.csv(file, as.is = TRUE)
 
 #' Interpret the estimate in words. 
 
+# [Your explanation here].
+
+#'
 #' # 2.
 #' ## (2a)
 #' In the Angrist and Krueger data, create a new variable, `year_of_birth_adj`, 
