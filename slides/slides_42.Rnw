@@ -1,4 +1,4 @@
-\documentclass[xcolor={dvipsnames}, handout]{beamer}
+\documentclass[xcolor={dvipsnames},handout]{beamer}
 
 \usepackage{../assets/pres-template_MOW}
 \usepackage{verbatim}
@@ -19,7 +19,8 @@
 
 
 \begin{document}
-\SweaveOpts{concordance=TRUE, prefix.string = figs41/}
+\SweaveOpts{concordance=TRUE}
+% \SweaveOpts{concordance=TRUE, prefix.string = figs42/}
 
 
 %-------------------------------------------------------------------------------%
@@ -440,6 +441,29 @@ How would you answer these questions with the \cite{miguel2004worms} paper?
 }
 
 %-------------------------------------------------------------------------------%
+% \begin{frame}{Different ways to design experiments}
+% 
+% Not all experiment designs are equal for a given objective. \pause 
+% \begin{itemize}
+% \item Simple vs. complete random assignment.\pause
+% \item Stratified assignment. \pause
+% \item Blocked assignment. 
+% \end{itemize}
+% 
+% \end{frame}
+% 
+% 
+% %%%%%NOTE%%%%%
+% \note{
+% \scriptsize \singlespacing
+% 
+% \begin{itemize}
+% \item xxxx
+% \end{itemize}
+% 
+% }
+% 
+% %-------------------------------------------------------------------------------%
 \begin{frame}{Data}
 
 \begin{itemize}
@@ -535,14 +559,37 @@ Y_{ijt} = & a + \beta_1 \times T_{1it} + \beta_2 \times T_{2it} + \X'_{ijt}\delt
 }
 
 %-------------------------------------------------------------------------------%
+\begin{frame}{Within-school externalities}
+
+\begin{itemize}
+\item The coefficients on $T_{1it}$ and $T_{2it}$, $\beta_1$ and $\beta_2$ capture \textit{direct effects} on the treated, as well as \textit{indirect effects} on untreated in treatment schools. \pause
+\item Why is it challenging to decompose these components? \pause
+\item Proposed solution: make assumptions about who got treatment, compare untreated in Group 1 in 1998 to those who \textit{would be} untreated in Group 2 in 1999 (why might this work?)\pause
+\item Result: evidence of large good externalities; infections lower among Group 1 untreated\pause
+\item Why might externalities be so large within schools?
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+
+}
+
+%-------------------------------------------------------------------------------%
 \begin{frame}{Geographic component}
 \begin{quote}
 Since local population density may affect disease transmission, and since
 children who live or attend school near treatment schools could have lower
 environmental exposure to helminths, which would lead to less reinfection and
 lower worm burdens, worm burden may depend on both the total number of
-primary school pupils ($N_{dit}$) and the number of those pupils in schools ran-
-domly assigned to deworming treatment ($N^T_{dit}$) within a certain distance from
+primary school pupils ($N_{dit}$) and the number of those pupils in schools randomly assigned to deworming treatment ($N^T_{dit}$) within a certain distance from
 school $i$ in year $t$ of the program.
 \end{quote}
 
@@ -550,6 +597,51 @@ school $i$ in year $t$ of the program.
 \begin{itemize}
 \item the $\gamma_d$ capture deworming treatment externalities across schools
 \end{itemize}
+
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+
+}
+
+%-------------------------------------------------------------------------------%
+% \begin{frame}{Within-school externalities}
+% 
+% \begin{itemize}
+% \item The coefficients on $T_{1it}$ and $T_{2it}$, $\beta_1$ and $\beta_2$ capture \textit{direct effects} on the treated, as well as \textit{indirect effects} on untreated in treatment schools. \pause
+% \item Why is it challenging to decompose these components? \pause
+% \item Proposed solution: make assumptions about who got treatment, compare untreated in Group 1 in 1998 to those who \textit{would be} untreated in Group 2 in 1999 (why might this work?)\pause
+% \item Result: evidence of large good externalities; infections lower among Group 1 untreated\pause
+% \item Why might externalities be so large within schools?
+% \end{itemize}
+% 
+% \end{frame}
+% 
+% 
+% %%%%%NOTE%%%%%
+% \note{
+% \scriptsize \singlespacing
+% 
+% \begin{itemize}
+% \item xxxx
+% \end{itemize}
+% 
+% }
+% 
+% %-------------------------------------------------------------------------------%
+\begin{frame}[c]
+
+\centering
+\textcolor{Maroon}{What is the answer that the authors get to the main question?}
+
+
 
 \end{frame}
 
