@@ -9,5 +9,4 @@ assignments/pset-spinning-template
 *.toc
 *.bbl
 *.vrb
-slides/figs
-slides/figs41
+slides/figs*
