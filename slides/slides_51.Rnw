@@ -8,7 +8,7 @@
 %--------------------------------------------------------------------------
 % Specific to this document ---------------------------------------
 %--------------------------------------------------------------------------
-\setbeamercovered{transparent}
+% \setbeamercovered{transparent}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\tabcolsep}{1.3pt}
@@ -81,7 +81,6 @@ as discussed in
 
 %-------------------------------------------------------------------------------%
 \begin{frame}{Chattopadhyay \& Duflo example}
-\pause
 
 \begin{itemize}
 \item Population: 7 villages\pause
@@ -92,19 +91,19 @@ as discussed in
 \begin{table}[]
 \begin{tabular}{lccccc}
 & $Y_i(0)$ & $Y_i(1)$ & $D_i$ & $Y_i$ & $\tau_i$ \\
-Village 1 & 10 & 15 & 0 & 15 & 5 \\
-Village 2 & 15 & 15 & 1 & 15 & 0 \\
+Village 1 & 10 & 15 & 1 & 15 & 5 \\
+Village 2 & 15 & 15 & 0 & 15 & 0 \\
 Village 3 & 20 & 30 & 0 & 20 & 10 \\
 Village 4 & 20 & 15 & 0 & 20 & -5 \\
 Village 5 & 10 & 20 & 0 & 10 & 10 \\
-Village 6 & 15 & 15 & 1 & 15 & 0 \\
-Village 7 & 15 & 30 & 0 & 30 & 15 \\
+Village 6 & 15 & 15 & 0 & 15 & 0 \\
+Village 7 & 15 & 30 & 1 & 30 & 15 \\
 {\textbf{Average}} & {\textbf{15}} & {\textbf{20}} & & &{\textbf{5}}
 \end{tabular}
 \end{table}
 
 $$
-\text{ATE} = {\textrm{E}[\tau_i]=5}
+\text{ATE} = {\E[\tau_i]=5}
 $$
 
 \end{frame}
@@ -122,7 +121,6 @@ $$
 
 %-------------------------------------------------------------------------------%
 \begin{frame}{Chattopadhyay \& Duflo example}
-\pause
 
 What we actually see:
 
@@ -148,6 +146,44 @@ $$
 $$
 \hat{\tau} = 22.5 - 16 = \bm{6.5}
 $$
+
+
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}{Estimand}
+
+The \textit{estimand} is the parameter of interest--it is the quantity that we would like to know about.
+
+\pause
+
+For example, when we care about causal effects, the estimand may be:
+
+\begin{itemize}
+\item the Average Treatment Effect (ATE)
+\item  the Average effect of Treatment on the Treated (ATT)
+\item  the Average effect of Treatment on the Control (ATC)
+\end{itemize}
+
+\pause
+
+Why might these three quantities differ?
+
+\pause
+
+
+\textit{Notational aside: we often denote the estimand with the greek letter $\theta$. Specific estimands may have conventional notations, such as $\tau$ for the ATE, $\mu$ for the mean, or $\sigma$ for the standard deviation.}
 
 
 \end{frame}
@@ -239,7 +275,7 @@ $$
 %-------------------------------------------------------------------------------%
 \begin{frame}{Difference-in-means}
 
-Proposed estimator for $\textrm{E}[\tau_i]$: compare people who received treatment $1$ to people who received treatment $0$. \\~\
+Proposed estimator for $\E[\tau_i]$: compare people who received treatment $1$ to people who received treatment $0$. \\~\
 
 \pause
 This is the difference in means estimator:
@@ -444,14 +480,13 @@ We can re-run the randomization, and the potential outcomes and observed $Y_i$ w
 \begin{table}[]
 \begin{tabular}{lccccc}
 & $Y_i(0)$ & $Y_i(1)$ & $D_i$ & $Y_i$ & $\tau_i$ \\
-Village 1 & \textcolor{red}{15} & 15 & \textcolor{blue}{1} & 15 & \textcolor{red}{0} \\
-Village 2 & 15 & \textcolor{red}{15} & \textcolor{blue}{0} & 15 &\textcolor{red}{0} \\
+Village 1 & \textcolor{red}{15} & 15 & \textcolor{blue}{0} & 15 & \textcolor{red}{0} \\
+Village 2 & 15 & \textcolor{red}{15} & \textcolor{blue}{1} & 15 &\textcolor{red}{0} \\
 Village 3 & 20 & \textcolor{red}{20} & \textcolor{blue}{0} & 20 &\textcolor{red}{0} \\
 Village 4 & 20 & \textcolor{red}{20} & \textcolor{blue}{0} & 20 &\textcolor{red}{0} \\
 Village 5 & 10 & \textcolor{red}{10} & \textcolor{blue}{0} & 10 &\textcolor{red}{0} \\
-Village 6 & 15 & \textcolor{red}{15} & \textcolor{blue}{0} & 15 &\textcolor{red}{0} \\
-Village 7 & \textcolor{red}{30} & 30 & \textcolor{blue}{1} & 30 &\textcolor{red}{0} \\
-{\textbf{Average}} & \color{blue}{{\textbf{19}}} & \color{blue}{{\textbf{15}}} & & &
+Village 6 & 15 & \textcolor{red}{15} & \textcolor{blue}{1} & 15 &\textcolor{red}{0} \\
+Village 7 & \textcolor{red}{30} & 30 & \textcolor{blue}{0} & 30 &\textcolor{red}{0}
 \end{tabular}
 \end{table}
 \pause
@@ -489,8 +524,7 @@ Village 3 & 20 & \textcolor{red}{20} & \textcolor{blue}{1} & 20 &\textcolor{red}
 Village 4 & 20 & \textcolor{red}{20} & \textcolor{blue}{1} & 20 &\textcolor{red}{0} \\
 Village 5 & 10 & \textcolor{red}{10} & \textcolor{blue}{0} & 10 &\textcolor{red}{0} \\
 Village 6 & 15 & \textcolor{red}{15} & \textcolor{blue}{0} & 15 &\textcolor{red}{0} \\
-Village 7 & \textcolor{red}{30} & 30 & \textcolor{blue}{0} & 30 &\textcolor{red}{0} \\
-{\textbf{Average}} & \color{blue}{{\textbf{19}}} & \color{blue}{{\textbf{15}}} & & &
+Village 7 & \textcolor{red}{30} & 30 & \textcolor{blue}{0} & 30 &\textcolor{red}{0}
 \end{tabular}
 \end{table}
 \pause
@@ -528,8 +562,7 @@ Village 3 & 20 & \textcolor{red}{20} & \textcolor{blue}{1} & 20 &\textcolor{red}
 Village 4 & 20 & \textcolor{red}{20} & \textcolor{blue}{0} & 20 &\textcolor{red}{0} \\
 Village 5 & 10 & \textcolor{red}{10} & \textcolor{blue}{0} & 10 &\textcolor{red}{0} \\
 Village 6 & 15 & \textcolor{red}{15} & \textcolor{blue}{0} & 15 &\textcolor{red}{0} \\
-Village 7 & \textcolor{red}{30} & 30 & \textcolor{blue}{1} & 30 &\textcolor{red}{0} \\
-{\textbf{Average}} & \color{blue}{{\textbf{19}}} & \color{blue}{{\textbf{15}}} & & &
+Village 7 & \textcolor{red}{30} & 30 & \textcolor{blue}{1} & 30 &\textcolor{red}{0}
 \end{tabular}
 \end{table}
 \pause
@@ -1565,7 +1598,7 @@ Suppose $\hat{\theta}$ is the general form for an estimate produced by our estim
 \begin{itemize}
 \item A lower one-tailed p-value under the null hypothesis is 
 $$
-p = \textrm{P}\_0[\hat{\theta} \le \hat{\theta}^*]
+p = \P_0[\hat{\theta} \le \hat{\theta}^*]
 $$
 \end{itemize}
 i.e., the probability \textit{under the null distribution} that we would see an estimate of $\hat{\theta}$ that is less than or equal to what we saw from the data. 
@@ -1603,7 +1636,7 @@ ggplot(null_dist, aes(x = bin_mid, y = count, fill = col2)) +
 \item An upper one-tailed p-value under the null hypothesis is 
 
 $$
-p = \textrm{P}\_0[\hat{\theta} \ge \hat{\theta}^*]
+p = \P_0[\hat{\theta} \ge \hat{\theta}^*]
 $$
 \end{itemize}
 i.e., the probability \textit{under the null distribution} that we would see an estimate of $\hat{\theta}$ that is greater than or equal to what we saw from the data. 
@@ -1641,7 +1674,7 @@ ggplot(null_dist, aes(x = bin_mid, y = count, fill = col3)) +
 \begin{itemize}
 \item A two-tailed p-value under the null hypothesis is 
 $$
-p = \textrm{P}\_0[|\hat{\theta}| \ge |\hat{\theta}^*|]
+p = \P_0[|\hat{\theta}| \ge |\hat{\theta}^*|]
 $$
 \end{itemize}
 
