@@ -86,7 +86,7 @@ ggplot(pager_agg, aes(x = race, y = call_back, fill = criminal_record)) +
 pager_df$D <- pager_df$record
 pager_df$Y <- pager_df$call_back
 
-table(pager_df$newD)
+table(pager_df$D)
 
 #' ## (2b) 
 #' Get the difference-in-means estimate of the ATE on `Y`, and save the
@@ -104,7 +104,7 @@ table(pager_df$newD)
 
 pager_df$newD <- sample(pager_df$D)
 
-table(pager_df$D)
+table(pager_df$newD)
 
 
 
