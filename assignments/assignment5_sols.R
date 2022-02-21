@@ -5,6 +5,7 @@
 #' ---
 #' Packages
 library(ggplot2)
+set.seed(60637)
 
 #' Analysis is based on:
 #' 

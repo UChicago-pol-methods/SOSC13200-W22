@@ -32,6 +32,7 @@
 
 <<packages>>=
 library(ggplot2)
+set.seed(60637)
 @
 
 \end{frame}
@@ -328,7 +329,7 @@ Our estimates of the mean and standard error of the mean.
 
 <<>>=
 (theta_hat <- mean(x_observed))
-(se_hat <- sd(x_observed)/sqrt(n))
+(se_hat <- sd(x_observed)/sqrt(length(x_observed)))
 @
 
 \pause
@@ -362,13 +363,13 @@ ggplot(data.frame(conf_lower = CI95[1], conf_upper = CI95[2], mean = theta_hat),
        aes(y = 1, x = mean)) +
   geom_point(color = 'skyblue') +
   geom_linerange(aes(xmin=conf_lower,xmax=conf_upper), color = 'skyblue', alpha = 0.85) +
+  theme_bw() +
   coord_cartesian(xlim = c(1.25, 1.75),) +
   geom_vline(xintercept = Ex, color = 'black', lty = 'dashed') +
   theme(axis.title.y=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank()) +
-  ggtitle('95% Normal Approximation-Based CI, 2 Weighted Coin Flips, Sample Size = 100') +
-  theme_bw()
+  ggtitle('95% Normal Approximation-Based CI,\n2 Weighted Coin Flips, Sample Size = 100')
 
 @
 }
@@ -404,7 +405,7 @@ x_mat <- replicate(n_iter, sample(X, prob = fx, replace = TRUE,
 <<>>=
 CI_95f <- function(x){
   theta_hat <- mean(x)
-  se_hat <- sd(x)/sqrt(n)
+  se_hat <- sd(x)/sqrt(length(x_observed))
   CI_hat <- theta_hat +
     c('conf_lower' = -1, 'conf_upper' = 1)*1.96*se_hat
 }
@@ -435,13 +436,13 @@ head(sample_CIs, 3)
 ggplot(sample_CIs,
        aes(y = seq(from = 0, to = 2, length.out = n_iter), x = 1)) +
   geom_linerange(aes(xmin=conf_lower,xmax=conf_upper), color = 'skyblue', alpha = 0.85) +
+  theme_bw() +
   coord_cartesian(xlim = c(1.25, 1.75)) +
   geom_vline(xintercept = Ex, color = 'black', lty = 'dashed') +
   theme(axis.title.y=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank()) +
-  ggtitle('95% Normal Approximation-Based CI, 2 Weighted Coin Flips, Sample Size = 100') + 
-  theme_bw()
+  ggtitle('95% Normal Approximation-Based CI,\n2 Weighted Coin Flips, Sample Size = 100')
 @
 }
 \end{figure}
@@ -973,7 +974,7 @@ hist(rnorm(10))
 }
 
 %-------------------------------------------------------------------------------%
-\begin{frame}{Frametitle}
+\begin{frame}%{Frametitle}
 
 \begin{itemize}
 \item xxx

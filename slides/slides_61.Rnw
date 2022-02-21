@@ -754,11 +754,11 @@ ggplot(dat_agg, aes(x = education,
 }
 
 %-------------------------------------------------------------------------------%
-\begin{frame}{Frametitle}
+\begin{frame}
 
 \begin{itemize}
 \item Why do we take the squared distance in terms of $Y$--instead of in terms of $X$? \pause
-\item What if we regressed $X~Y$ instead of $Y~X$?
+\item What if we regressed $X \sim Y$ instead of $Y \sim X$?
 \end{itemize}
 
 \end{frame}
@@ -1062,7 +1062,7 @@ mean(df$Y[which(df$leg_republican == 1)])
 %-------------------------------------------------------------------------------%
 \begin{frame}[fragile]{Extracting components from an lm object}
 
-
+\scriptsize
 <<>>=
 lm1 <- lm(Y ~ D, data = df)
 names(lm1)
@@ -1149,7 +1149,7 @@ hist(rnorm(10))
 }
 
 %-------------------------------------------------------------------------------%
-\begin{frame}{Frametitle}
+\begin{frame}
 
 \begin{itemize}
 \item xxx
