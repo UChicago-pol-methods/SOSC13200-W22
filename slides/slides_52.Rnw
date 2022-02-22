@@ -57,8 +57,8 @@ set.seed(60637)
 \begin{frame}{Continuing inference}
 
 \begin{itemize}
-\item Last class, we assumed we had a finite population that we observe all of, and the source of randomness in what we observed was due to random assignment of treatment. This is called \textit{randomization inference.}\pause
-\item Now, we'll assume that our data is produced from a random generative process, where we're sampling from some (potentially infinite) population distribution that is not fully observed. This is the type of inference we use for survey sampling. \pause
+\item Last class, we assumed we had a finite population that we observe all of, and the source of randomness in what we observed was due to random assignment of treatment. The inference we used there is called \textit{randomization inference.}\pause
+\item Now, we'll assume that our data is produced from a random generative process, where we're sampling from some (potentially infinite) population distribution that is not fully observed. The inference we will use in this setting is the type of inference we use for survey sampling. \pause
 \item It's important to consider \textit{what the source of randomness is} and \textit{what population we're making inferences about.} 
 \end{itemize}
 
@@ -114,7 +114,7 @@ $$
 \item We use the coin flip example, but we can compare this to any ``random'' event where we can code the outcome in terms of a one or zero. \pause
 \item For example, with respect to the \citet{pager2003mark} data, we can use a process like this to model the probability that an employer will hire a white applicant without a criminal record. \pause
 \item We might say that there are different random processes, with different probabilities of success, for whites with and without criminal records, and blacks with and without criminal records. \pause
-\item Here, where we have mutliple coin flips, we can compare that to the probability distribution of hires for two people with the same profile. 
+\item Here, where we have multiple coin flips, we can compare that to the probability distribution of hires for two people with the same profile. 
 \end{itemize}
 
 \end{frame}
@@ -1224,300 +1224,333 @@ $$
 }
 
 % %-------------------------------------------------------------------------------%
-% \begin{frame}{Weak Law of Large Numbers}
-% 
-% \begin{itemize}
-% \item As our sample size $n$ grows, we are increasingly likely to observe a sample mean $\bar X_n$ that is close to the mean of the distribution, $\E[X]$.
-% \pause
-% 
-% \item Formally,\\
-% 
-% If $X_1, \dots, X_n$ are i.i.d. random variables,  then
-% 
-% $$
-% \bar{X}_n \overset{p}{\to} \E[X].
-% $$
-% \pause
-% \item Convergence in probability, $\overset{p}{\to}$, here means that the probability that we measure a value of $\bar X_n$ that is any arbitrary distance away from $\E[X]$ is decreasing with our sample size.
-% \end{itemize}
-% 
-% 
-% \end{frame}
-% 
-% 
-% %%%%%NOTE%%%%%
-% 
-% 
-% \note{
-% \scriptsize \singlespacing
-% 
-% \begin{itemize}
-% \item xxxx
-% \end{itemize}
-% }
-% 
-% %-------------------------------------------------------------------------------%
-% \begin{frame}[fragile]{Weak Law of Large Numbers}
-% 
-% To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
-% 
-% 
-% <<width = 5, height=5, echo=FALSE>>=
-% n <- 500
-% x_mat <- replicate(8, sample(X,
-%                                  prob = probs,
-%                                  replace = TRUE,
-%                                  size = n))
-% new_mat <- apply(x_mat, 2, function(x) cumsum(x)/seq_along(x))
-% new_mat <- data.frame(`Sample mean` = matrix(new_mat, byrow = FALSE, ncol = 1),
-%                       n = 1:n,
-%                       name = factor(rep(1:8, each =  n)),
-%                       check.names = FALSE)
-% @
-% 
-% 
-% \end{frame}
-% 
-% 
-% %%%%%NOTE%%%%%
-% 
-% 
-% \note{
-% \scriptsize \singlespacing
-% 
-% \begin{itemize}
-% \item xxxx
-% \end{itemize}
-% }
-% 
-% %-------------------------------------------------------------------------------%
-% \begin{frame}[fragile]{Weak Law of Large Numbers}
-% 
-% To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
-% 
-% 
-% \begin{figure}
-% \centering
-% \resizebox{0.6\textwidth}{!}{
-% <<fig = TRUE, width = 5, height=5, echo=FALSE>>=
-% ggplot(new_mat[which(new_mat$n < 26),], aes(x = n, y = `Sample mean`, col = name)) +
-%   geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
-%   geom_line() +
-%   theme(legend.position = 'none') +
-%   coord_cartesian(xlim = c(0, 500))
-% 
-% @
-% }
-% \end{figure}
-% \end{frame}
-% 
-% 
-% %%%%%NOTE%%%%%
-% 
-% 
-% \note{
-% \scriptsize \singlespacing
-% 
-% \begin{itemize}
-% \item xxxx
-% \end{itemize}
-% }
-% 
-% %-------------------------------------------------------------------------------%
-% \begin{frame}[fragile]{Weak Law of Large Numbers}
-% 
-% To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
-% 
-% 
-% \begin{figure}
-% \centering
-% \resizebox{0.6\textwidth}{!}{
-% <<fig = TRUE, width = 5, height=5, echo=FALSE>>=
-% 
-% ggplot(new_mat[which(new_mat$n < 51),], aes(x = n, y = `Sample mean`, col = name)) +
-%   geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
-%   geom_line() +
-%   theme(legend.position = 'none') +
-%   coord_cartesian(xlim = c(0, 500))
-% 
-% @
-% }
-% \end{figure}
-% \end{frame}
-% 
-% 
-% %%%%%NOTE%%%%%
-% 
-% 
-% \note{
-% \scriptsize \singlespacing
-% 
-% \begin{itemize}
-% \item xxxx
-% \end{itemize}
-% }
-% 
-% %-------------------------------------------------------------------------------%
-% \begin{frame}[fragile]{Weak Law of Large Numbers}
-% 
-% To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
-% 
-% \begin{figure}
-% \centering
-% \resizebox{0.6\textwidth}{!}{
-% <<fig = TRUE, width = 5, height=5, echo=FALSE>>=
-% 
-% ggplot(new_mat[which(new_mat$n < 101),], aes(x = n, y = `Sample mean`, col = name)) +
-%   geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
-%   geom_line() +
-%   theme(legend.position = 'none') +
-%   coord_cartesian(xlim = c(0, 500))
-% 
-% @
-% }
-% \end{figure}
-% \end{frame}
-% 
-% 
-% %%%%%NOTE%%%%%
-% 
-% 
-% \note{
-% \scriptsize \singlespacing
-% 
-% \begin{itemize}
-% \item xxxx
-% \end{itemize}
-% }
-% 
-% %-------------------------------------------------------------------------------%
-% \begin{frame}[fragile]{Weak Law of Large Numbers}
-% 
-% To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
-% 
-% \begin{figure}
-% \centering
-% \resizebox{0.6\textwidth}{!}{
-% <<fig = TRUE, width = 5, height=5, echo=FALSE>>=
-% 
-% ggplot(new_mat[which(new_mat$n < 201),], aes(x = n, y = `Sample mean`, col = name)) +
-%   geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
-%   geom_line() +
-%   theme(legend.position = 'none') +
-%   coord_cartesian(xlim = c(0, 500))
-% 
-% @
-% }
-% \end{figure}
-% \end{frame}
-% 
-% 
-% %%%%%NOTE%%%%%
-% 
-% 
-% \note{
-% \scriptsize \singlespacing
-% 
-% \begin{itemize}
-% \item xxxx
-% \end{itemize}
-% }
-% 
-% %-------------------------------------------------------------------------------%
-% \begin{frame}[fragile]{Weak Law of Large Numbers}
-% 
-% To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
-% 
-% \begin{figure}
-% \centering
-% \resizebox{0.6\textwidth}{!}{
-% <<fig = TRUE, width = 5, height=5, echo=FALSE>>=
-% 
-% ggplot(new_mat[which(new_mat$n < 351),], aes(x = n, y = `Sample mean`, col = name)) +
-%   geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
-%   geom_line() +
-%   theme(legend.position = 'none') +
-%   coord_cartesian(xlim = c(0, 500))
-% 
-% @
-% }
-% \end{figure}
-% \end{frame}
-% 
-% 
-% %%%%%NOTE%%%%%
-% 
-% 
-% \note{
-% \scriptsize \singlespacing
-% 
-% \begin{itemize}
-% \item xxxx
-% \end{itemize}
-% }
-% 
-% %-------------------------------------------------------------------------------%
-% \begin{frame}[fragile]{Weak Law of Large Numbers}
-% 
-% To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
-% 
-% 
-% \begin{figure}
-% \centering
-% \resizebox{0.6\textwidth}{!}{
-% <<fig = TRUE, width = 5, height=5, echo=FALSE>>=
-% 
-% ggplot(new_mat[which(new_mat$n < 501),], aes(x = n, y = `Sample mean`, col = name)) +
-%   geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
-%   geom_line() +
-%   theme(legend.position = 'none') +
-%   coord_cartesian(xlim = c(0, 500))
-% 
-% @
-% }
-% \end{figure}
-% \end{frame}
-% 
-% 
-% %%%%%NOTE%%%%%
-% 
-% 
-% \note{
-% \scriptsize \singlespacing
-% 
-% \begin{itemize}
-% \item xxxx
-% \end{itemize}
-% }
-% 
-% %-------------------------------------------------------------------------------%
-% \begin{frame}{Weak Law of Large Numbers}
-% 
-% \begin{itemize}
-% \item Why is the WLLN so helpful to us?
-% \pause
-% 
-% \item Given a sufficient sample from a population, we can estimate features of a random variable to arbitrary precision
-% \pause
-% 
-% \item This is why we can use sample analogs of population features, like the sample mean, as plug-in estimators to estimate the population quantities.
-% \end{itemize}
-% \end{frame}
-% 
-% 
-% %%%%%NOTE%%%%%
-% 
-% 
-% \note{
-% \scriptsize \singlespacing
-% 
-% \begin{itemize}
-% \item xxxx
-% \end{itemize}
-% }
-% 
-% %-------------------------------------------------------------------------------%
-% 
+
+\begin{frame}{Weak Law of Large Numbers}
+
+\begin{itemize}
+\item As our sample size $n$ grows, we are increasingly likely to observe a sample mean $\bar X_n$ that is close to the mean of the distribution, $\E[X]$.
+\pause
+
+\item Formally,\\
+
+If $X_1, \dots, X_n$ are i.i.d. random variables,  then
+
+$$
+\bar{X}_n \overset{p}{\to} \E[X].
+$$
+\pause
+\item Convergence in probability, $\overset{p}{\to}$, here means that the probability that we measure a value of $\bar X_n$ that is any arbitrary distance away from $\E[X]$ is decreasing with our sample size.
+\end{itemize}
+
+
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+
+
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}[fragile]{Weak Law of Large Numbers}
+
+To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
+
+
+<<width = 5, height=5, echo=FALSE>>=
+n <- 500
+x_mat <- replicate(8, sample(X,
+                                 prob = probs,
+                                 replace = TRUE,
+                                 size = n))
+new_mat <- apply(x_mat, 2, function(x) cumsum(x)/seq_along(x))
+new_mat <- data.frame(`Sample mean` = matrix(new_mat, byrow = FALSE, ncol = 1),
+                      n = 1:n,
+                      name = factor(rep(1:8, each =  n)),
+                      check.names = FALSE)
+@
+
+
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+
+
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}[fragile]{Weak Law of Large Numbers}
+
+To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
+
+
+\begin{figure}
+\centering
+\resizebox{0.6\textwidth}{!}{
+<<fig = TRUE, width = 5, height=5, echo=FALSE>>=
+ggplot(new_mat[which(new_mat$n < 26),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+@
+}
+\end{figure}
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+
+
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}[fragile]{Weak Law of Large Numbers}
+
+To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
+
+
+\begin{figure}
+\centering
+\resizebox{0.6\textwidth}{!}{
+<<fig = TRUE, width = 5, height=5, echo=FALSE>>=
+
+ggplot(new_mat[which(new_mat$n < 51),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+@
+}
+\end{figure}
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+
+
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}[fragile]{Weak Law of Large Numbers}
+
+To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
+
+\begin{figure}
+\centering
+\resizebox{0.6\textwidth}{!}{
+<<fig = TRUE, width = 5, height=5, echo=FALSE>>=
+
+ggplot(new_mat[which(new_mat$n < 101),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+@
+}
+\end{figure}
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+
+
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}[fragile]{Weak Law of Large Numbers}
+
+To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
+
+\begin{figure}
+\centering
+\resizebox{0.6\textwidth}{!}{
+<<fig = TRUE, width = 5, height=5, echo=FALSE>>=
+
+ggplot(new_mat[which(new_mat$n < 201),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+@
+}
+\end{figure}
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+
+
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}[fragile]{Weak Law of Large Numbers}
+
+To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
+
+\begin{figure}
+\centering
+\resizebox{0.6\textwidth}{!}{
+<<fig = TRUE, width = 5, height=5, echo=FALSE>>=
+
+ggplot(new_mat[which(new_mat$n < 351),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+@
+}
+\end{figure}
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+
+
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}[fragile]{Weak Law of Large Numbers}
+
+To see the WLLN in action, we'll try simulating our coinflip process, but with an increasing number of samples used to calculate the sample mean.
+
+
+\begin{figure}
+\centering
+\resizebox{0.6\textwidth}{!}{
+<<fig = TRUE, width = 5, height=5, echo=FALSE>>=
+
+ggplot(new_mat[which(new_mat$n < 501),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+@
+}
+\end{figure}
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+
+
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}{Weak Law of Large Numbers}
+
+\begin{itemize}
+\item Why is the WLLN so helpful to us?
+\pause
+
+\item Given a sufficient sample from a population, we can estimate features of a random variable to arbitrary precision
+\pause
+
+\item This is why we can use sample analogs of population features, like the sample mean, as plug-in estimators to estimate the population quantities.
+\end{itemize}
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+
+
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}{Reading papers}
+
+What to get out of reading a research paper:
+\begin{itemize}
+\item \textcolor{Maroon}{What is the main question of the paper?}\pause
+\item What method do the authors use to address the question? \pause
+For empirical papers:\pause
+\begin{itemize}
+\item Data (Where does it come from/how is it generated? What is the sample population? What is being measured?)\pause
+\item Research design/strategy\pause
+\item Statistical tools\pause
+\end{itemize}
+\item What is the answer that the authors get to the main question?
+\end{itemize}
+
+\pause
+How would you answer these questions with the \cite{pager2003mark} paper?
+
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+
+}
+
+%-------------------------------------------------------------------------------%
+
 % \begin{frame}{Bootstrap estimation}
 % 
 % 
