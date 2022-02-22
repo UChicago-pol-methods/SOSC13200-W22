@@ -80,7 +80,15 @@ Write narrative and code answering the below questions. Your compiled report for
     
    
 
+## Other resources for data sets
 
-The *Data is Plural* [https://www.data-is-plural.com/](https://www.data-is-plural.com/) [archive](https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0) also has a number of interesting data sets. 
+- The [Data is Plural website](https://www.data-is-plural.com/) and [archive](https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0) also have a number of interesting data sets. 
 
+- [FiveThirtyEight](https://data.fivethirtyeight.com/) shares the data (and some code) used to generate some of the graphs and figures on their website. 
+
+- [Buzz feed](https://github.com/BuzzFeedNews) shares some data sets from Buzz Feed News. 
+
+- [ProPublica](https://www.propublica.org/datastore/datasets) hosts a number of unique and custom data sets relevant to their projects on investigative journalism for public interest. 
+
+- [Kaggle](https://www.kaggle.com/datasets) has a vast collection of user-submitted data sets. 
 
