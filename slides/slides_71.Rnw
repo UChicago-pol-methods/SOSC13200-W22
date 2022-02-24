@@ -35,10 +35,8 @@
 \begin{frame}[fragile]{Loading packages for this class}
 
 <<packages>>=
-library(ggplot2)
 library(estimatr)
 library(modelsummary)
-set.seed(60637)
 @
 
 \end{frame}
@@ -613,32 +611,7 @@ mean(dat[which(dat$treatment ==0),'spandana_1'], na.rm = TRUE)
 }
 
 %-------------------------------------------------------------------------------%
-\begin{frame}[fragile]%{Frametitle}
-If we just use the regression estimate without controls, is it meaningfully different from the version with controls?
-\scriptsize
-<<>>=
 
-formula2 <- formula('spandana_1 ~ treatment')
-
-lm_robust(formula2, data = dat, clusters = areaid, weights = w1)
-@
-
-
-
-\end{frame}
-
-
-%%%%%NOTE%%%%%
-\note{
-\scriptsize \singlespacing
-
-\begin{itemize}
-\item xxxx
-\end{itemize}
-\\~\
-}
-
-%-------------------------------------------------------------------------------%
 \begin{frame}[fragile]%{Frametitle}
 If we just use the regression estimate without controls, is it meaningfully different from the version with controls?\\
 
@@ -735,6 +708,51 @@ modelsummary(lm_list_alt, stars = TRUE,
 
 \begin{itemize}
 \item Is there a design-based reason why we might not see much difference with covariate adjustment?
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+\\~\
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}{Where do we see effects of microfinance?}
+
+\begin{itemize}
+\item Credit?\pause
+\item Small business development?\pause (among which businesses?)\pause
+\item Poverty reduction? \pause
+\item Household consumption? \pause
+\item Social welfare: education, health, female empowerment?
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%NOTE%%%%%
+\note{
+\scriptsize \singlespacing
+
+\begin{itemize}
+\item xxxx
+\end{itemize}
+\\~\
+}
+
+%-------------------------------------------------------------------------------%
+\begin{frame}{Big picture take-away}
+
+\begin{itemize}
+\item Take-aways from this study?
+\item How much can we generalize about effects of microfinance?
 \end{itemize}
 
 \end{frame}

@@ -3,14 +3,12 @@
 ###################################################
 ### code chunk number 1: packages
 ###################################################
-library(ggplot2)
 library(estimatr)
 library(modelsummary)
-set.seed(60637)
 
 
 ###################################################
-### code chunk number 2: slides_71.Rnw:255-258
+### code chunk number 2: slides_71.Rnw:253-256
 ###################################################
 dat <- read.csv('../data/banerjee-et-al.csv')
 
@@ -42,7 +40,7 @@ modelsummary(lm_list, stars = TRUE,
 
 
 ###################################################
-### code chunk number 4: slides_71.Rnw:540-550
+### code chunk number 4: slides_71.Rnw:538-548
 ###################################################
 
 formula1 <- formula(paste0('spandana_1 ~ treatment', 
@@ -57,7 +55,7 @@ lm_robust(formula1, data = dat, clusters = areaid, weights = w1)
 
 
 ###################################################
-### code chunk number 5: slides_71.Rnw:592-597
+### code chunk number 5: slides_71.Rnw:590-595
 ###################################################
 # number of observations
 sum(!is.na(dat$spandana_1))
@@ -67,7 +65,7 @@ mean(dat[which(dat$treatment ==0),'spandana_1'], na.rm = TRUE)
 
 
 ###################################################
-### code chunk number 6: slides_71.Rnw:619-623
+### code chunk number 6: slides_71.Rnw:620-624
 ###################################################
 
 formula2 <- formula('spandana_1 ~ treatment')
@@ -76,16 +74,7 @@ lm_robust(formula2, data = dat, clusters = areaid, weights = w1)
 
 
 ###################################################
-### code chunk number 7: slides_71.Rnw:647-651
-###################################################
-
-formula2 <- formula('spandana_1 ~ treatment')
-
-lm_robust(formula2, data = dat, clusters = areaid, weights = w1)
-
-
-###################################################
-### code chunk number 8: table2alt
+### code chunk number 7: table2alt
 ###################################################
 
 lm_list_alt<- list()
@@ -103,7 +92,7 @@ modelsummary(lm_list_alt, stars = TRUE,
 
 
 ###################################################
-### code chunk number 9: slides_71.Rnw:777-778
+### code chunk number 8: slides_71.Rnw:795-796
 ###################################################
 hist(rnorm(10))
 
