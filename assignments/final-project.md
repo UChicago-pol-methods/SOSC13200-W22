@@ -23,8 +23,11 @@ If your propose your own data set, consider that you will be asked to produce da
 Write narrative and code answering the below questions. Your compiled report for this part of the project, including narrative and compiled code, should be about 2 pages long. You do not need to answer question by question, but use the questions below to guide your description. The objective of this first project component is to demonstrate that you have a good understanding of where your data comes from, and what is going on in your data set. This will require some *exploratory* analysis-look at your data, maybe make some plots, and make sure you understand what all of the variables represent. 
 
 1. Describe where the data comes from, and how it was generated. Is it from a survey? A census? An experiment? Was it collected by researchers for an academic project, or is it administrative data that is routinely collected by a government or other organization? What else can you say about how the data was generated?
+
 2. What does each observation describe in the data set? I.e., what does each row represent–a measurement from an individual person? Measurement from a specific geographic location? Are there multiple measurements over different periods in time or space? Is there anything weird or interesting about how your data is formatted–.e.g, is your data [*long* or *wide*](https://stats.oarc.ucla.edu/r/faq/how-can-i-reshape-my-data-in-r/)?
+
 3. What is the population represented in the data set? Is it from a sample from a larger population, or does the data set itself include all relevant units from the population? If you were to analyze the data set, would you expect the results to be relevant for other units or groups?
+
 4. Provide some descriptive summary of the dataset using code. I do *not* want to see a full page that is just `head(data)`, but consider summary statistics that can help a reader understand, at a high level, what is going on in the data set. How many rows and columns are there? Is there missing data? Are variables mostly numeric, character, or are there different data types represented? Do you have categorical variables, that represent different levels of something? Are these levels ordered (e.g., grade levels) or unordered (e.g., colors). Is there anything else relevant about how your data is coded?
 
 
@@ -33,14 +36,35 @@ Write narrative and code answering the below questions. Your compiled report for
 ### Part II: Multiple linear regression and data visualizations. 
 #### Due Monday 3/7 at 5pm
 
-[Description TBA]
+Describe relationships among variables in your data set, demonstrating your data visualization and quantitative analysis skills. 
+
+Write narrative and code answering the below questions. Your compiled report for this part of the project, including narrative and compiled code, should be about 2-3 pages long. You do not need to answer question by question, but use the questions below to guide your description, and please be sure to answer all parts of each question. The objective of this second project component is to demonstrate that you are able to  describe, numerically and visually, relationships among variables within your data. 
+
+1. Select two variables whose relationship you think is interesting. Please be sure to describe what these variables represent. 
+
+    * Report the mean and *standard error of the mean* for each variable (make sure you are reporting the standard error of the mean, and not the standard deviation). 
+    
+    * Provide a data visualization for the distribution of each variable separately in your data set, and jointly. Separate distributions can look like histograms or bar charts; joint distributions might look like a scatter plot or multiple boxplots--but these are not the only options. Look at the [`ggplot` cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf) for more ideas. Use all best practices in creating these data visualizations: provide a title for the plot, label x and y axes, use colors appropriately, make sure labels are legible. These plots should be high quality and ready for presentation to a broader audience. 
+
+2. Regress one of your two variables on the other using `lm_robust()`. 
+
+    * Explain why you chose which variable as the dependent and independent variables. 
+    
+    * Interpret the intercept and the slope coefficient: say in words what the linear model represents, so that a friend who is not familiar with linear models would understand the relationship between the two variables. Is this relationship causal, or does it tell you anything meaningful about the underlying data? Report the standard errors, p-values, and confidence intervals for both the intercept and the slope. 
+    
+    * Can you reject the null hypothesis that the slope is equal to zero, at p = 0.05? p = 0.01? An even smaller p-value? If you cannot reject the null hypothesis, what does that tell you about the relationship between the two variables?
+
+3. Include several alternate specifications of your model in part 2, controlling for additional variables. 
+
+    * Be sure to describe which additional variables you are controlling for in each model. This should read like a nice replication analysis, so that when I am going through your report, I can fully understand what you are doing. 
+
+    *  Interpret the coefficient on your independent variable of interest in these alternative models. Do these alternate specifications meaningfully change the value of the slope coefficient on your independent variable of interest? Do they change the p-value on your independent variable of interest? What does this tell you about the relationships across the variables?
 
 ### Part III: Finalize report and discussion. 
 #### Due Friday 3/11 at 5pm 
 **Note the short turn-around between parts II and III**
 
-[Description TBA]
-
+Given what you included in parts I and II of your report, provide a high-level narrative take-away about what you found in your selected data set. Include any additional analysis or visualizations that help explain this data set. Your compiled report for this part of the project, including narrative and compiled code, should be about 1 page long, or potentially longer if you have included more visualizations. If you want to correct or revise anything from parts I and II, you can do that here. 
 
 
 ## Data sets you can choose from: [list in progress]
