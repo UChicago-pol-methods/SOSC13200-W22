@@ -6,6 +6,7 @@
 
 library(ggplot2)
 library(estimatr)
+library(modelsummary)
 
 #' 
 #' ## Reading in the data 
@@ -102,7 +103,7 @@ g3
 #' 
 #' ## Table 3
 
-lm0 <- lm_robust(fte ~ d *nj, data = dat)
+lm0 <- lm_robust(fte ~ d*nj, data = dat)
 
 ## Row 1
 # PA before
