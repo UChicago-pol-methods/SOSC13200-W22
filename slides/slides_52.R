@@ -202,7 +202,93 @@ var(unlist(sample_means))
 
 
 ###################################################
-### code chunk number 19: slides_52.Rnw:2342-2343
+### code chunk number 19: slides_52.Rnw:1266-1276
+###################################################
+n <- 500
+x_mat <- replicate(8, sample(X,
+                                 prob = probs,
+                                 replace = TRUE,
+                                 size = n))
+new_mat <- apply(x_mat, 2, function(x) cumsum(x)/seq_along(x))
+new_mat <- data.frame(`Sample mean` = matrix(new_mat, byrow = FALSE, ncol = 1),
+                      n = 1:n,
+                      name = factor(rep(1:8, each =  n)),
+                      check.names = FALSE)
+
+
+###################################################
+### code chunk number 20: slides_52.Rnw:1303-1309
+###################################################
+ggplot(new_mat[which(new_mat$n < 26),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+
+
+###################################################
+### code chunk number 21: slides_52.Rnw:1336-1343
+###################################################
+
+ggplot(new_mat[which(new_mat$n < 51),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+
+
+###################################################
+### code chunk number 22: slides_52.Rnw:1369-1376
+###################################################
+
+ggplot(new_mat[which(new_mat$n < 101),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+
+
+###################################################
+### code chunk number 23: slides_52.Rnw:1402-1409
+###################################################
+
+ggplot(new_mat[which(new_mat$n < 201),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+
+
+###################################################
+### code chunk number 24: slides_52.Rnw:1435-1442
+###################################################
+
+ggplot(new_mat[which(new_mat$n < 351),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+
+
+###################################################
+### code chunk number 25: slides_52.Rnw:1469-1476
+###################################################
+
+ggplot(new_mat[which(new_mat$n < 501),], aes(x = n, y = `Sample mean`, col = name)) +
+  geom_hline(yintercept = Ex, color = 'darkgrey', lty = 'dashed') +
+  geom_line() +
+  theme(legend.position = 'none') +
+  coord_cartesian(xlim = c(0, 500))
+
+
+
+###################################################
+### code chunk number 26: slides_52.Rnw:2375-2376
 ###################################################
 hist(rnorm(10))
 

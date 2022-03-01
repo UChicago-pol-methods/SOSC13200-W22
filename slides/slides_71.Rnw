@@ -489,7 +489,7 @@ $$\pause
 \item The model is not different from our univariate regression model, but our interpretation differs based on what we know about the relationships between the variables. \pause
 \item We can also have a causal model, where we have one causal variable, and we control for additional explanatory variables that are not directly causal. 
 $$
-Y = \beta_0 + \gamma_1 D_1 + \beta_1 X_1 + \beta_2 X_2 + \epsilon
+Y = \gamma_0 + \gamma_1 D_1 + \beta_1 X_1 + \beta_2 X_2 + \epsilon
 $$\pause
 \item If we already believe that we can get a causal interpretation from the first model (for example, because of \textit{independence} of treatment and outcomes), why would we use the second model?
 \end{itemize}

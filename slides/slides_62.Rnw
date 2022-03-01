@@ -32,6 +32,7 @@
 
 <<packages>>=
 library(ggplot2)
+library(estimatr)
 set.seed(60637)
 @
 
@@ -522,7 +523,7 @@ We can see this in action with respect to the paper by Devah Pager:
 \vskip 1 cm
 \Large
 \textcolor{Maroon}{Pager, D. (2003). The mark of a criminal record. \textit{American Journal of Sociology}, 108(5), 937-975.}
-
+\nocite{pager2003mark}
 
 \end{frame}
 
@@ -620,7 +621,7 @@ pager_agg
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]{ ../assets/pager_2003.png}
+\includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]{"../assets/pager_2003".png}
 \end{figure}
 
 \end{frame}
@@ -710,7 +711,7 @@ $$
 \end{itemize}
 
 <<>>=
-model <- lm(call_back ~1,
+model <- lm_robust(call_back ~1,
             data = dfp[which(dfp$black == 1),])
 @
 
@@ -836,16 +837,16 @@ $$ \hat{Y}_i = \hat{\beta}_0 +  \hat{\beta}_1 X_i $$
 
 \begin{itemize}
 
-\item Let's try this with the dfp data, where the outcome $Y$ is \texttt{call\_back}, regressed on \texttt{black} and \texttt{record}, interacted.
+\item Let's try this with the dfp data, where the outcome $Y$ is \texttt{call\_back}, regressed on \texttt{black}.
 
 $$
-\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 \textrm{Black}_i + \hat{\beta}_2 \textrm{Record}_i + \hat{\beta}_3 \textrm{Black}_i  \times \textrm{Record}_i
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 \textrm{Black}_i
 $$
 
 \end{itemize}
 
 <<>>=
-model2 <- lm(call_back ~ black*record, data = dfp)
+model2 <- lm_robust(call_back ~ black, data = dfp)
 @
 
 \end{frame}

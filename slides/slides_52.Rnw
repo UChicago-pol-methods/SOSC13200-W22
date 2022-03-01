@@ -1174,7 +1174,7 @@ $$
 \pause
 
 <<>>=
-var(unlist(sample_means))
+var(sample_means)
 @
 \pause
 It's not exactly what we calculated mathematically.
@@ -1675,7 +1675,7 @@ How would you answer these questions with the \cite{pager2003mark} paper?
 % 
 % <<>>=
 % 
-% sd(unlist(boot_ests))
+% sd(boot_ests)
 % @
 % 
 % \pause
