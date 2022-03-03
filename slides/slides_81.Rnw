@@ -92,7 +92,7 @@ Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_K X_K\epsilon
 $$
 \pause
 \begin{itemize}
-\item How do we interpret $\beta_0$? \pause $\beta_1$?\pause $\beta_K$?
+\item How do we interpret $\beta_0$? \pause $\beta_1$? \pause $\beta_K$?
 \end{itemize}
 
 \end{frame}
