@@ -181,7 +181,7 @@ $$
 \begin{itemize}
 \item The formula for the 95\% confidence interval is:
 $$
-CI_n = \left(\hat \theta_n - 1.96 \times \hat{\textrm{se}},\  \theta_n + 1.96 \times \hat{\textrm{se}} \right)
+CI_n = \left(\hat \theta_n - 1.96 \times \hat{\textrm{se}},\  \hat \theta_n + 1.96 \times \hat{\textrm{se}} \right)
 $$\pause
 \item The 1.96 value tells us how many standard errors away from the mean we need to include in our interval to get valid coverage. \pause
 \item This formula is based on a \textit{normal approximation}, i.e., we assume the data is going to look like a normal distribution. 

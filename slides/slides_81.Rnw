@@ -88,7 +88,7 @@ set.seed(60637)
 Recall our multivariate regression model:
 
 $$
-Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_K X_K\epsilon
+Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_K X_K + \epsilon
 $$
 \pause
 \begin{itemize}
@@ -712,7 +712,7 @@ $$
 \begin{itemize}
 \item The formula for the 95\% confidence interval is:
 $$
-CI_n = \left(\hat \theta_n - 1.96 \times \hat{\textrm{se}},\  \theta_n + 1.96 \times \hat{\textrm{se}} \right)
+CI_n = \left(\hat \theta_n - 1.96 \times \hat{\textrm{se}},\  \hat\theta_n + 1.96 \times \hat{\textrm{se}} \right)
 $$\pause
 \item The 1.96 value tells us how many standard errors away from the mean we need to include in our interval to get valid coverage. \pause
 \item This formula is based on a \textit{normal approximation}, i.e., we assume the data is going to look like a normal distribution. 
@@ -843,30 +843,6 @@ Note that we are \textit{not} imposing the sharp null of no individual effect he
 \\~\
 }
 
-%-------------------------------------------------------------------------------%
-\begin{frame}{P-values}
-
-\begin{itemize}
-\item A two-tailed p-value under the null hypothesis is 
-$$
-p = \textrm{P}_0[|\hat{\theta}| \ge |\hat{\theta}^*|]
-$$
-\end{itemize}
-
-i.e., the probability \textit{under the null distribution} that we would see an estimate of $\hat{\theta}$ as or more extreme as what we saw from the data. 
-
-\end{frame}
-
-
-%%%%%NOTE%%%%%
-\note{
-\scriptsize \singlespacing
-
-\begin{itemize}
-\item xxxx
-\end{itemize}
-\\~\
-}
 %-------------------------------------------------------------------------------%
 \begin{frame}
 
@@ -1050,7 +1026,7 @@ We can try this with the \cite{pager2003mark} data.
 <<>>=
 outmat <- replicate(1000, # do this 1000 times
                     {
-                      # Take a sample of size n with replacemetn from the data
+                      # Take a sample of size n with replacement from the data
                       idx <- sample(1:nrow(dfp), replace = TRUE) 
                       # fit the model on the sampled data
                       lmx <- lm_robust(call_back ~ black*record, 

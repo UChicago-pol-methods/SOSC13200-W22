@@ -9,7 +9,7 @@ set.seed(60637)
 
 
 ###################################################
-### code chunk number 2: slides_51.Rnw:585-595
+### code chunk number 2: slides_51.Rnw:618-628
 ###################################################
 df <- data.frame(
         # our initial treatment vector
@@ -24,7 +24,7 @@ df
 
 
 ###################################################
-### code chunk number 3: slides_51.Rnw:619-623
+### code chunk number 3: slides_51.Rnw:652-656
 ###################################################
 Y1 <- df$Y[which(df$D == 1)]
 Y0 <- df$Y[which(df$D == 0)]
@@ -33,7 +33,7 @@ Y0 <- df$Y[which(df$D == 0)]
 
 
 ###################################################
-### code chunk number 4: slides_51.Rnw:644-652
+### code chunk number 4: slides_51.Rnw:677-685
 ###################################################
 df <-  cbind( # binds the columns together
         df,
@@ -46,13 +46,13 @@ df
 
 
 ###################################################
-### code chunk number 5: slides_51.Rnw:674-675
+### code chunk number 5: slides_51.Rnw:707-708
 ###################################################
 (perms <- genperms(df$D))
 
 
 ###################################################
-### code chunk number 6: slides_51.Rnw:695-704
+### code chunk number 6: slides_51.Rnw:728-737
 ###################################################
 Ys_null <- list(
         Y0 = df$Y0,
@@ -66,13 +66,13 @@ dm
 
 
 ###################################################
-### code chunk number 7: slides_51.Rnw:726-727
+### code chunk number 7: slides_51.Rnw:759-760
 ###################################################
 mean(dm)
 
 
 ###################################################
-### code chunk number 8: slides_51.Rnw:750-759
+### code chunk number 8: slides_51.Rnw:783-792
 ###################################################
 gg_bins <- aggregate(list(rf = dm), by = list(dm = dm), length)
 gg_bins$col <- abs(gg_bins$dm) >= dm_hat
@@ -86,14 +86,14 @@ ggplot(gg_bins, aes(x = dm, y = rf)) +
 
 
 ###################################################
-### code chunk number 9: slides_51.Rnw:764-766
+### code chunk number 9: slides_51.Rnw:797-799
 ###################################################
 prop.table(table(dm))
 (pval <- mean(abs(dm) >= dm_hat))
 
 
 ###################################################
-### code chunk number 10: slides_51.Rnw:789-797
+### code chunk number 10: slides_51.Rnw:822-830
 ###################################################
 ggplot(gg_bins, aes(x = dm, y = rf, fill = col)) +
         geom_col() +
@@ -106,14 +106,14 @@ ggplot(gg_bins, aes(x = dm, y = rf, fill = col)) +
 
 
 ###################################################
-### code chunk number 11: slides_51.Rnw:802-804
+### code chunk number 11: slides_51.Rnw:835-837
 ###################################################
 prop.table(table(dm))
 (pval <- mean(abs(dm) >= dm_hat))
 
 
 ###################################################
-### code chunk number 12: slides_51.Rnw:849-852
+### code chunk number 12: slides_51.Rnw:882-885
 ###################################################
 dispdist(distout = dm, 
          ate = dm_hat, 
@@ -134,39 +134,39 @@ str(df)
 
 
 ###################################################
-### code chunk number 15: slides_51.Rnw:1130-1131
+### code chunk number 15: slides_51.Rnw:1163-1164
 ###################################################
 table(df$treat_deshawn)
 
 
 ###################################################
-### code chunk number 16: slides_51.Rnw:1139-1140
+### code chunk number 16: slides_51.Rnw:1172-1173
 ###################################################
 table(df$reply_atall)
 
 
 ###################################################
-### code chunk number 17: slides_51.Rnw:1162-1164
+### code chunk number 17: slides_51.Rnw:1195-1197
 ###################################################
 df$D <- df$treat_deshawn
 df$Y <- df$reply_atall
 
 
 ###################################################
-### code chunk number 18: slides_51.Rnw:1172-1174
+### code chunk number 18: slides_51.Rnw:1205-1207
 ###################################################
 Y1 <- df$Y[which(df$D == 1)]
 Y0 <- df$Y[which(df$D == 0)]
 
 
 ###################################################
-### code chunk number 19: slides_51.Rnw:1180-1181
+### code chunk number 19: slides_51.Rnw:1213-1214
 ###################################################
 (dm_hat <- mean(Y1) - mean(Y0))
 
 
 ###################################################
-### code chunk number 20: slides_51.Rnw:1225-1235
+### code chunk number 20: slides_51.Rnw:1258-1268
 ###################################################
 # randomization inference function
 my_ri <- function(df){
@@ -181,19 +181,19 @@ my_ri <- function(df){
 
 
 ###################################################
-### code chunk number 21: slides_51.Rnw:1256-1257
+### code chunk number 21: slides_51.Rnw:1289-1290
 ###################################################
 my_ri(df)
 
 
 ###################################################
-### code chunk number 22: slides_51.Rnw:1262-1263
+### code chunk number 22: slides_51.Rnw:1295-1296
 ###################################################
 my_ri(df)
 
 
 ###################################################
-### code chunk number 23: slides_51.Rnw:1287-1293
+### code chunk number 23: slides_51.Rnw:1320-1326
 ###################################################
 # number of iterations
 n_iter <- 1000
@@ -204,7 +204,7 @@ head(dm)
 
 
 ###################################################
-### code chunk number 24: slides_51.Rnw:1317-1328
+### code chunk number 24: slides_51.Rnw:1350-1361
 ###################################################
 null_dist <- data.frame(dm)
 null_dist$bins <- cut(dm, breaks = 50)
@@ -220,13 +220,13 @@ ggplot(null_dist, aes(x = bin_mid, y = count)) +
 
 
 ###################################################
-### code chunk number 25: slides_51.Rnw:1335-1336
+### code chunk number 25: slides_51.Rnw:1368-1369
 ###################################################
 (pval <- mean(abs(dm) >= abs(dm_hat)))
 
 
 ###################################################
-### code chunk number 26: slides_51.Rnw:1360-1366
+### code chunk number 26: slides_51.Rnw:1393-1399
 ###################################################
 
 ggplot(null_dist, aes(x = bin_mid, y = count, fill = col)) +
@@ -237,13 +237,13 @@ ggplot(null_dist, aes(x = bin_mid, y = count, fill = col)) +
 
 
 ###################################################
-### code chunk number 27: slides_51.Rnw:1373-1374
+### code chunk number 27: slides_51.Rnw:1406-1407
 ###################################################
 (pval <- mean(abs(dm) >= abs(dm_hat)))
 
 
 ###################################################
-### code chunk number 28: slides_51.Rnw:1476-1483
+### code chunk number 28: slides_51.Rnw:1509-1516
 ###################################################
 null_dist$col2 <- null_dist$bin_min <= dm_hat
 
@@ -255,13 +255,13 @@ ggplot(null_dist, aes(x = bin_mid, y = count)) +
 
 
 ###################################################
-### code chunk number 29: slides_51.Rnw:1490-1491
+### code chunk number 29: slides_51.Rnw:1523-1524
 ###################################################
 (pval <- mean(dm <= dm_hat))
 
 
 ###################################################
-### code chunk number 30: slides_51.Rnw:1515-1520
+### code chunk number 30: slides_51.Rnw:1548-1553
 ###################################################
 ggplot(null_dist, aes(x = bin_mid, y = count, fill = col2)) +
   geom_col() +
@@ -271,13 +271,13 @@ ggplot(null_dist, aes(x = bin_mid, y = count, fill = col2)) +
 
 
 ###################################################
-### code chunk number 31: slides_51.Rnw:1526-1527
+### code chunk number 31: slides_51.Rnw:1559-1560
 ###################################################
 (pval <- mean(dm <= dm_hat))
 
 
 ###################################################
-### code chunk number 32: slides_51.Rnw:1577-1582
+### code chunk number 32: slides_51.Rnw:1610-1615
 ###################################################
 ggplot(null_dist, aes(x = bin_mid, y = count, fill = col2)) +
   geom_col() +
@@ -287,7 +287,7 @@ ggplot(null_dist, aes(x = bin_mid, y = count, fill = col2)) +
 
 
 ###################################################
-### code chunk number 33: slides_51.Rnw:1615-1621
+### code chunk number 33: slides_51.Rnw:1648-1654
 ###################################################
 null_dist$col3 <- null_dist$bin_min >= dm_hat
 ggplot(null_dist, aes(x = bin_mid, y = count, fill = col3)) +
@@ -298,7 +298,7 @@ ggplot(null_dist, aes(x = bin_mid, y = count, fill = col3)) +
 
 
 ###################################################
-### code chunk number 34: slides_51.Rnw:1653-1658
+### code chunk number 34: slides_51.Rnw:1686-1691
 ###################################################
 ggplot(null_dist, aes(x = bin_mid, y = count, fill = col)) +
   geom_col() +
@@ -308,7 +308,7 @@ ggplot(null_dist, aes(x = bin_mid, y = count, fill = col)) +
 
 
 ###################################################
-### code chunk number 35: slides_51.Rnw:1698-1699
+### code chunk number 35: slides_51.Rnw:1731-1732
 ###################################################
 hist(rnorm(10))
 

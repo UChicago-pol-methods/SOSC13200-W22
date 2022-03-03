@@ -4,11 +4,12 @@
 ### code chunk number 1: packages
 ###################################################
 library(ggplot2)
+library(estimatr)
 set.seed(60637)
 
 
 ###################################################
-### code chunk number 2: slides_62.Rnw:208-232
+### code chunk number 2: slides_62.Rnw:209-233
 ###################################################
 result_n <- rnorm(n = 10000)
 plotdata <- data.frame(
@@ -37,7 +38,7 @@ g +
 
 
 ###################################################
-### code chunk number 3: slides_62.Rnw:259-269
+### code chunk number 3: slides_62.Rnw:260-270
 ###################################################
 g +
   stat_function(fun = dnorm,
@@ -52,7 +53,7 @@ g +
 
 
 ###################################################
-### code chunk number 4: slides_62.Rnw:295-298
+### code chunk number 4: slides_62.Rnw:296-299
 ###################################################
 X <- c(0, 1, 2)
 fx <- c(1/16, 3/8, 9/16)
@@ -60,7 +61,7 @@ fx <- c(1/16, 3/8, 9/16)
 
 
 ###################################################
-### code chunk number 5: slides_62.Rnw:306-310
+### code chunk number 5: slides_62.Rnw:307-311
 ###################################################
 n <- 100
 x_observed <- sample(X, prob = fx, replace = TRUE, size = n)
@@ -69,37 +70,37 @@ head(x_observed)
 
 
 ###################################################
-### code chunk number 6: slides_62.Rnw:330-332
+### code chunk number 6: slides_62.Rnw:331-333
 ###################################################
 (theta_hat <- mean(x_observed))
 (se_hat <- sd(x_observed)/sqrt(length(x_observed)))
 
 
 ###################################################
-### code chunk number 7: slides_62.Rnw:339-340
+### code chunk number 7: slides_62.Rnw:340-341
 ###################################################
 (CI95 <- c(theta_hat + c(-1,1)*1.96*se_hat))
 
 
 ###################################################
-### code chunk number 8: slides_62.Rnw:361-373
+### code chunk number 8: slides_62.Rnw:362-374
 ###################################################
 ggplot(data.frame(conf_lower = CI95[1], conf_upper = CI95[2], mean = theta_hat),
        aes(y = 1, x = mean)) +
   geom_point(color = 'skyblue') +
   geom_linerange(aes(xmin=conf_lower,xmax=conf_upper), color = 'skyblue', alpha = 0.85) +
+  theme_bw() +
   coord_cartesian(xlim = c(1.25, 1.75),) +
   geom_vline(xintercept = Ex, color = 'black', lty = 'dashed') +
   theme(axis.title.y=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank()) +
-  ggtitle('95% Normal Approximation-Based CI,\n2 Weighted Coin Flips, Sample Size = 100') +
-  theme_bw()
+  ggtitle('95% Normal Approximation-Based CI,\n2 Weighted Coin Flips, Sample Size = 100')
 
 
 
 ###################################################
-### code chunk number 9: slides_62.Rnw:397-400
+### code chunk number 9: slides_62.Rnw:398-401
 ###################################################
 n_iter <- 50
 x_mat <- replicate(n_iter, sample(X, prob = fx, replace = TRUE,
@@ -107,7 +108,7 @@ x_mat <- replicate(n_iter, sample(X, prob = fx, replace = TRUE,
 
 
 ###################################################
-### code chunk number 10: slides_62.Rnw:405-415
+### code chunk number 10: slides_62.Rnw:406-416
 ###################################################
 CI_95f <- function(x){
   theta_hat <- mean(x)
@@ -122,29 +123,29 @@ head(sample_CIs, 3)
 
 
 ###################################################
-### code chunk number 11: slides_62.Rnw:435-445
+### code chunk number 11: slides_62.Rnw:436-446
 ###################################################
 ggplot(sample_CIs,
        aes(y = seq(from = 0, to = 2, length.out = n_iter), x = 1)) +
   geom_linerange(aes(xmin=conf_lower,xmax=conf_upper), color = 'skyblue', alpha = 0.85) +
+  theme_bw() +
   coord_cartesian(xlim = c(1.25, 1.75)) +
   geom_vline(xintercept = Ex, color = 'black', lty = 'dashed') +
   theme(axis.title.y=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank()) +
-  ggtitle('95% Normal Approximation-Based CI,\n2 Weighted Coin Flips, Sample Size = 100') + 
-  theme_bw()
+  ggtitle('95% Normal Approximation-Based CI,\n2 Weighted Coin Flips, Sample Size = 100')
 
 
 ###################################################
-### code chunk number 12: slides_62.Rnw:472-474
+### code chunk number 12: slides_62.Rnw:473-475
 ###################################################
 mean( (Ex >= sample_CIs$conf_lower) & 
         (Ex <= sample_CIs$conf_upper) )
 
 
 ###################################################
-### code chunk number 13: slides_62.Rnw:496-501
+### code chunk number 13: slides_62.Rnw:497-502
 ###################################################
 x_mat <- replicate(5000, sample(X, 
                                 prob = fx, 
@@ -154,13 +155,13 @@ CI_n <- as.data.frame(t(apply(x_mat, 2, CI_95f)))
 
 
 ###################################################
-### code chunk number 14: slides_62.Rnw:506-507
+### code chunk number 14: slides_62.Rnw:507-508
 ###################################################
 mean( (Ex >= CI_n$conf_lower) & (Ex <= CI_n$conf_upper) )
 
 
 ###################################################
-### code chunk number 15: slides_62.Rnw:572-589
+### code chunk number 15: slides_62.Rnw:573-590
 ###################################################
 dfp <- data.frame(
   black = rep(c(0, 1), times = c(300, 400)),
@@ -182,7 +183,7 @@ dfp <- data.frame(
 
 
 ###################################################
-### code chunk number 16: slides_62.Rnw:609-618
+### code chunk number 16: slides_62.Rnw:610-619
 ###################################################
 pager_agg <- aggregate(call_back~black + record, data = dfp, mean)
 pager_agg$race <- factor(pager_agg$black,
@@ -196,13 +197,13 @@ pager_agg
 
 
 ###################################################
-### code chunk number 17: slides_62.Rnw:643-644
+### code chunk number 17: slides_62.Rnw:644-645
 ###################################################
 (theta_hat <- mean(dfp$call_back[which(dfp$black == 1)]) )
 
 
 ###################################################
-### code chunk number 18: slides_62.Rnw:655-659
+### code chunk number 18: slides_62.Rnw:656-660
 ###################################################
 (se_hat <- sqrt(var(dfp$call_back[which(dfp$black == 1)])/
                   length(which(dfp$black == 1))))
@@ -211,53 +212,53 @@ pager_agg
 
 
 ###################################################
-### code chunk number 19: slides_62.Rnw:685-686
+### code chunk number 19: slides_62.Rnw:686-687
 ###################################################
 (CI <- c(theta_hat + c(-1,1)*1.96*se_hat))
 
 
 ###################################################
-### code chunk number 20: slides_62.Rnw:712-714
+### code chunk number 20: slides_62.Rnw:713-715
 ###################################################
-model <- lm(call_back ~1,
+model <- lm_robust(call_back ~1,
             data = dfp[which(dfp$black == 1),])
 
 
 ###################################################
-### code chunk number 21: slides_62.Rnw:733-735
+### code chunk number 21: slides_62.Rnw:734-736
 ###################################################
 
 summary(model)
 
 
 ###################################################
-### code chunk number 22: slides_62.Rnw:754-756
+### code chunk number 22: slides_62.Rnw:755-757
 ###################################################
 
 confint.default(model)
 
 
 ###################################################
-### code chunk number 23: slides_62.Rnw:847-848
+### code chunk number 23: slides_62.Rnw:848-849
 ###################################################
-model2 <- lm(call_back ~ black*record, data = dfp)
+model2 <- lm_robust(call_back ~ black, data = dfp)
 
 
 ###################################################
-### code chunk number 24: slides_62.Rnw:872-873
+### code chunk number 24: slides_62.Rnw:873-874
 ###################################################
 summary(model2)
 
 
 ###################################################
-### code chunk number 25: slides_62.Rnw:897-899
+### code chunk number 25: slides_62.Rnw:898-900
 ###################################################
 
 confint.default(model2)
 
 
 ###################################################
-### code chunk number 26: slides_62.Rnw:936-937
+### code chunk number 26: slides_62.Rnw:937-938
 ###################################################
 hist(rnorm(10))
 
