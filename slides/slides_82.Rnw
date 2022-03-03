@@ -399,7 +399,7 @@ These tests aren't all fully independent, but the more tests we do, the more lik
 \item four independent tests, the probability that \textit{at least one of them} will be statistically significant at $p \le \alpha$ is $1-(1-\alpha)^4 $
 \item For $\alpha = 0.05$, $1-0.95^4 = 0.1855$\pause
 \item With Bonferroni correction: $1-(1-\alpha/4)^4 = 0.0491$\pause
-\item Ten independent tests: $1-(1-\alpha/10)^10 = 0.0489$
+\item Ten independent tests: $1-(1-\alpha/10)^{10} = 0.0489$
 \end{itemize}
 \end{itemize}
 
