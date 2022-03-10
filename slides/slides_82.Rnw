@@ -186,7 +186,7 @@ i.e., the probability \textit{under the null distribution} that we would see an 
 \item $\text{A} \independent \text{B}$: the two events are independent\pause
 \item $\textrm{P}[\text{A}] = 0.05$\pause
 \item $\textrm{P}[\text{B}] = 0.05$\pause
-\item $\textrm{P}[\text{A}\text{B}]$? The probability we see event A OR B?
+\item $\textrm{P}[\text{A}\cup\text{B}]$? The probability we see event A OR B?
 \end{itemize}
 
 \end{frame}
@@ -205,11 +205,11 @@ i.e., the probability \textit{under the null distribution} that we would see an 
 %-------------------------------------------------------------------------------%
 \begin{frame}%{Frametitle}
 \begin{align*}
-\uncover<+->{\textrm{P}[\text{A}\text{B}] & = \textrm{P}[\text{A}] + \textrm{P}[\text{A}^\text{C}]\times\textrm{P}[\text{B}| \text{A}^\text{C}]}
+\uncover<+->{\textrm{P}[\text{A}\cup\text{B}] & = \textrm{P}[\text{A}] + \textrm{P}[\text{A}^\text{C}]\times\textrm{P}[\text{B}| \text{A}^\text{C}]}
 \uncover<+->{\intertext{A and B are independent, so $\textrm{P}[\text{B}| \text{A}^\text{C}] = \textrm{P}[\text{B}]$}}\\
-\uncover<+->{\textrm{P}[\text{A}\text{B}] & = \textrm{P}[\text{A}] + \textrm{P}[\text{A}^\text{C}]\times\textrm{P}[\text{B}]}\\
-\uncover<+->{\textrm{P}[\text{A}\text{B}] & = 0.05 + 0.95 \times 0.05}\\
-\uncover<+->{\textrm{P}[\text{A}\text{B}] & = 0.0975}
+\uncover<+->{\textrm{P}[\text{A}\cup\text{B}] & = \textrm{P}[\text{A}] + \textrm{P}[\text{A}^\text{C}]\times\textrm{P}[\text{B}]}\\
+\uncover<+->{\textrm{P}[\text{A}\cup\text{B}] & = 0.05 + 0.95 \times 0.05}\\
+\uncover<+->{\textrm{P}[\text{A}\cup\text{B}] & = 0.0975}
 \end{align*}
 
 % Definition of circles
@@ -230,7 +230,7 @@ outline/.style={draw=circle edge, thick}}
 \begin{tikzpicture}
 \draw[filled] \firstcircle node {A}
 \secondcircle node {B};
-\node[anchor=south] at (current bounding box.north) {AB};
+\node[anchor=south] at (current bounding box.north) {A$\cup$B};
 \end{tikzpicture}
 \end{figure}
 }
@@ -426,7 +426,7 @@ These tests aren't all fully independent, but the more tests we do, the more lik
 What if tests are not independent? \pause Bonferroni is too aggressive. 
 
 \begin{align*}
-\uncover<+->{\textrm{P}[\text{A}\text{B}] & = \textrm{P}[\text{A}] + \textrm{P}[\text{A}^\text{C}]\times\textrm{P}[\text{B}| \text{A}^\text{C}]}
+\uncover<+->{\textrm{P}[\text{A}\cup\text{B}] & = \textrm{P}[\text{A}] + \textrm{P}[\text{A}^\text{C}]\times\textrm{P}[\text{B}| \text{A}^\text{C}]}
 \uncover<+->{\intertext{If A and B are positively correlated $\textrm{P}[\text{B}| \text{A}^\text{C}] \le \textrm{P}[\text{B}]$}}
 \end{align*}
 
